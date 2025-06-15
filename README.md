@@ -160,5 +160,5 @@ Ce projet démontre la mise en œuvre d'une application de gestion de mots de pa
 
 ## Auteurs
 
-* **Hasna Daoui** – Développement, sécurité, interfaces
-* **Nana Diawara** – Conception, base de données, tests
+* **Hasna Daoui** 
+* **Nana Diawara**
