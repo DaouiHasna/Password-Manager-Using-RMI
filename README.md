@@ -37,7 +37,7 @@ password-manager-rmi/
 Exécute les commandes suivantes et place les fichiers JAR dans les dossiers client/ et server/ :
 
 bash
-curl -O https://repo1.maven.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar  
+
 curl -O https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.42.0.0/sqlite-jdbc-3.42.0.0.jar
 
 
@@ -58,16 +58,19 @@ openssl pkcs12 -export -inkey server.key -in server.crt \
 #### a) Compilation
 
 ```bash
-javac -cp ".:gson-2.8.9.jar:sqlite-jdbc-3.42.0.0.jar" *.java
+javac -cp ".:sqlite-jdbc-3.42.0.0.jar" *.java
 ```
 
 #### b) Lancement du Serveur
 
 ```bash
-java   --add-opens=java.base/java.lang=ALL-UNNAMED 
-       --add-opens=java.base/java.util=ALL-UNNAMED 
-	   --add-opens=java.rmi/sun.rmi.server=ALL-UNNAMED  
-	   -cp ".:gson-2.8.9.jar:sqlite-jdbc-3.42.0.0.jar"   PasswordManagerRMIServer
+java  
+  --add-opens=java.base/java.lang=ALL-UNNAMED \
+  --add-opens=java.base/java.util=ALL-UNNAMED \
+  --add-opens=java.rmi/sun.rmi.server=ALL-UNNAMED \
+  -cp ".:sqlite-jdbc-3.42.0.0.jar" \
+  PasswordManagerRMIServer
+
 ```
 
 #### c) Lancement du Client
@@ -76,7 +79,7 @@ java   --add-opens=java.base/java.lang=ALL-UNNAMED
 java   --add-opens=java.base/java.lang=ALL-UNNAMED
        --add-opens=java.base/java.util=ALL-UNNAMED  
 	   --add-opens=java.rmi/sun.rmi.server=ALL-UNNAMED  
-	   -cp ".:gson-2.8.9.jar:sqlite-jdbc-3.42.0.0.jar"   PasswordManagerClient
+	   -cp ".:sqlite-jdbc-3.42.0.0.jar"   PasswordManagerClient
 ```
 
 ### III. Réseau et Sécurité
